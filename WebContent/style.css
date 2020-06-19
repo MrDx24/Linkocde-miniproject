@@ -1,0 +1,77 @@
+@CHARSET "ISO-8859-1";
+
+
+
+#loginForm {
+	margin: auto;
+	box-shadow: 1px 1px 2px gray, 0 0 25px #e8e8e8, 0 0 5px #e8e8e8;
+	margin-top: 100px;
+	width: 400px;
+	padding: 10px 20px;
+}
+
+#registerForm {
+	margin: auto;
+	box-shadow: 1px 1px 2px gray, 0 0 25px #e8e8e8, 0 0 5px #e8e8e8;
+	margin-top: 50px;
+	width: 400px;
+	padding: 10px 20px;
+}
+
+div h2 {
+	margin-bottom: 20px;
+	
+}
+
+.btngrp {
+    margin-top: 20px;
+	/* border: 1px ssolid black; */
+}
+
+div form #loginBtn {
+	margin-bottom: 10px;
+	width: 50%;
+    float: left;
+    border-radius: 5px;
+    height: 100%;
+}
+
+div form #registerBtn {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	/* width: 50%;
+    float: left; */
+    border-radius: 5px;
+    height: 100%;
+}
+
+div form div #register {
+	margin-bottom: 10px;
+	/* width: 50%; */
+    float: right;
+    text-decoration: none;
+    margin-top: 5px;
+    color: rgb(104, 104, 104);
+}
+
+div form div a b:hover{
+    color: blue;
+    text-decoration: underline;
+    
+}
+
+div div a {
+	float: right;
+}
+
+div div #frgpsswd {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(104, 104, 104);
+
+}
+
+div div #frgpsswd:hover {
+    color: blue;
+
+}
