@@ -50,12 +50,11 @@ public class ProductServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//		response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		String productName = request.getParameter("productName");
 		int productQuantity = Integer.parseInt(request.getParameter("productQuantity"));
 		double productPrice = Double.parseDouble(request.getParameter("productPrice"));
-		System.out.println("Accepted");
+		
 
 		HttpSession session = request.getSession(true);
 		int id = (int)session.getAttribute("userid");
@@ -70,13 +69,11 @@ public class ProductServlet extends HttpServlet {
 			
 			int orderid = lstOrder.get(0).getOrderid();
 			session.setAttribute("orderid", orderid);
-//			lst.add(product);
+			session.setAttribute("products", lstOrder);
 
-			for (int i = 0; i < lst.size(); i++) {
-				System.out.println("-----------------------------");
-				System.out.println(lst.get(i).getProductName()+" : "+lst.get(i).getProductPrice()+" : "+lst.get(i).getProductQuantity()+"");
-				System.out.println("-----------------------------");
-			}
+			response.sendRedirect("Product.jsp");
+
+			
 		}
 		catch (Exception e) {
 			// TODO: handle exception
@@ -84,9 +81,7 @@ public class ProductServlet extends HttpServlet {
 		}
 
 
-		session.setAttribute("products", lstOrder);
-
-		response.sendRedirect("Product.jsp");
+		
 
 
 	}

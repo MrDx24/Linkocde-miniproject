@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <%@page import="com.model.Order"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,6 +14,15 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+	body {
+		background-image: url("images/cart.jpg"); 
+		background-repeat: no-repeat; 
+		background-size: cover;
+	}
+</style>
+
 </head>
 <body>
 
@@ -30,8 +41,8 @@
 		</div>
 	</form>
 	
-	<% ArrayList list = (ArrayList)session.getAttribute("products"); %>
-	<table class="table table-striped table-bordered tablecustom">
+	
+	<table class="table table-bordered tablecustom">
 	<thead class="thead-dark">
 	<tr>
 			<th>
@@ -49,20 +60,26 @@
 	</tr>
 	</thead>
 	<tbody>
-	<% if(list == null) { %>
+	
+	
+	<c:set var="lstpr" scope="session" value="${products}"></c:set>
+	<c:if test="${lstpr==null}">
 	<tr>
 		<td colspan="4" style="text-align: center;">No items in cart</td>
 	</tr>
-	<% }else{ %>
-	<% for (int i = 0; i < list.size() ; i++) { %>
+	</c:if>
+
+	<c:if test="${lstpr!=null}">
+	
+	<c:forEach items="${lstpr}" var="l">
 		<tr>
-			<% Order p = (Order)list.get(i); %>
-			<td><%= p.getOrderid() %></td>
-			<td><%= p.getProductName() %></td>
-			<td><%= p.getProductQuantity() %></td>
-			<td>Rs <%= p.getProductPrice() %></td>
+			<td> ${l.getOrderid()} </td>
+			<td> ${l.getProductName()} </td>
+			<td> ${l.getProductQuantity()} </td>
+			<td>Rs ${l.getProductPrice()} </td>
 		</tr>
-	<% } } %>
+	</c:forEach>
+	</c:if>
 	
 	</tbody>
 	</table>

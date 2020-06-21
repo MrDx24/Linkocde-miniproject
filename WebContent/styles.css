@@ -17,9 +17,7 @@ div a {
     border-radius: 0px;
 }
 
-/* .center {
-    margin: 50px 0px 0px 0px;
-} */
+
 
 #prQtlbl {
     margin-top: 10px;
@@ -31,6 +29,10 @@ div a {
 
 form label {
     margin-top: 10px;
+}
+
+nav.navbar.navbar-inverse.fixed-top {
+    height: 90px;
 }
 
 .badge {
@@ -48,6 +50,7 @@ form.formGroup {
 }
 
 .row.cont {
+	background: #f3f3f3;
 	display:inline-block;
     width: 300px;
     margin: 20px 10px 20px 25px;
@@ -89,6 +92,10 @@ form button {
 thead {
 	background: #464646;
 	color: white;
+}
+
+tbody, td {
+	background: #ffffffb8;
 }
 
 

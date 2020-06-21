@@ -4,15 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Register</title>
 	<link rel="stylesheet" href="style.css" type="text/css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	
+<style type="text/css">
+	body {
+		background-image: url("images/register.jpg"); 
+		background-repeat: no-repeat; 
+		background-size: cover;
+	}
+</style>
 </head>
+
 <body>
 	
-	<div id="registerForm" class="container">
+	<div id="" class="container registerForm">
 		<h2>Register Form</h2>
 		<form action="RegisterController" method="post" class="formGroup">
 			<div class="formGroup">
@@ -33,7 +42,7 @@
 
 				<div class="btn-group btn-block ">
 					<button id="registerBtn" type="submit" class="btn btn-primary btn-block">Register</button>
-					<!-- <a href="Register.html" id="register" style="text-decoration: none;">New User ? <b>Sign up</b></a> -->
+					
 				</div>
 			</div>
 		</form>

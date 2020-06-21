@@ -1,7 +1,7 @@
 package com.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -45,17 +45,19 @@ public class LoginController extends HttpServlet {
 		LoginDao loginDao = new LoginDao();
 		try {
 
-			int result = loginDao.validate(login);
-
-			System.out.println("Login result : id :  " + result);
+			String result = loginDao.validate(login);
+			
 			HttpSession session = request.getSession(true);
-			if (result==-1) {
-				System.out.println("Error in login");
+			if (result=="error-in-login") {
+				
 				session.setAttribute("error", "Invalid credentials");
 			} 
 			else {
-				session.setAttribute("userid", result);
-				System.out.println("Successful");
+				String res[] = result.split(" ");
+				System.out.println("id : "+res[0] + " || mobile : "+res[1]);
+				int resid = Integer.parseInt(res[0]);
+				session.setAttribute("userid", resid);
+				session.setAttribute("mobile", res[1]);
 				response.sendRedirect("Product.jsp");
 				
 			}

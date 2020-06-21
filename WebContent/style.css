@@ -2,20 +2,38 @@
 
 
 
-#loginForm {
+div.loginForm {
+	
 	margin: auto;
-	box-shadow: 1px 1px 2px gray, 0 0 25px #e8e8e8, 0 0 5px #e8e8e8;
+	background: #ecebeb94;
+	border-radius: 5px;
+	
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	margin-top: 100px;
+	width: 400px;
+	padding: 10px 20px;
+	/* background: #ffffff; */
+}
+
+div.registerForm {
+	
+	margin: auto;
+	background: #ecebeb94;
+	border-radius: 5px;
+	
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-top: 50px;
 	width: 400px;
 	padding: 10px 20px;
 }
 
-#registerForm {
-	margin: auto;
-	box-shadow: 1px 1px 2px gray, 0 0 25px #e8e8e8, 0 0 5px #e8e8e8;
-	margin-top: 50px;
-	width: 400px;
-	padding: 10px 20px;
+input.form-control {
+    border: 2px solid white;
+    outline: none;
+    border-radius: 5px;
+    background: #ffffff7a;
+    box-shadow: none;
+    margin-bottom: 10px;
 }
 
 div h2 {

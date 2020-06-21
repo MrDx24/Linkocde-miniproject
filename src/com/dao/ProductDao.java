@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpSession;
 
 import com.model.Order;
 import com.model.Product;
@@ -28,10 +27,7 @@ public class ProductDao {
 
 	public int saveOrder(int id, Product product) throws Exception {
 
-		System.out.println("----------------------------------------------");
-		System.out.println("Inside ProductDao  : id : " + id);
-		System.out.println("Order name : " + product.getProductName());
-		System.out.println("----------------------------------------------");
+		
 		con = dao.connect();
 		int orderId = id+1234;
 
@@ -40,7 +36,7 @@ public class ProductDao {
 		ps.setString(2, product.getProductName());
 		rs = ps.executeQuery();
 		if(rs.next()) {
-			System.out.println("*****in if update*****");
+			
 			int oldqnt = rs.getInt("orderquantity");
 			double oldpr = rs.getDouble("orderprice");
 
@@ -54,7 +50,7 @@ public class ProductDao {
 
 		}
 		else {
-			System.out.println("*****in else update*****");
+			
 			ps = con.prepareStatement("insert into orders(orderid,userid,ordername,orderquantity,orderprice) values('"+orderId+"','"+id+"','"+product.getProductName()+"','"+product.getProductQuantity()+"','"+product.getProductPrice()+"')");
 
 			int i = ps.executeUpdate();
@@ -66,7 +62,8 @@ public class ProductDao {
 	
 	public ArrayList<Order> getOrder(int id) throws Exception {
 		
-		ArrayList<Order> productsList = new ArrayList();
+		
+		ArrayList<Order> productsList = new ArrayList<Order>();
 		Order order;
 		con = dao.connect();
 		ps = con.prepareStatement("select * from orders where userid=?");
@@ -87,7 +84,7 @@ public class ProductDao {
 	
 	public ArrayList<ProductDetails> getProducts() throws Exception {
 		
-		ArrayList<ProductDetails> productsList = new ArrayList();
+		ArrayList<ProductDetails> productsList = new ArrayList<ProductDetails>();
 		ProductDetails product;
 		con = dao.connect();
 		ps = con.prepareStatement("select * from products");
@@ -100,7 +97,7 @@ public class ProductDao {
 			
 		}
 		
-		System.out.println("Loaded successfully : " + productsList.size());
+		
 		return productsList;
 		
 	}

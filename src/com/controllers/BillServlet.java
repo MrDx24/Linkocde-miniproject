@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dao.BillDao;
+import com.model.Bill;
 
 /**
  * Servlet implementation class BillServlet
@@ -30,20 +31,25 @@ public class BillServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 		HttpSession session = request.getSession(true);
 		
 		int userid = (int) session.getAttribute("userid");
-//		int bid = (int) session.getAttribute("billid");
-//		String name = (String) session.getAttribute("bname");
+		String mobile = (String) session.getAttribute("mobile");
+
 		try {
-			System.out.println("Userid : " + userid);
+			
 			BillDao bdao = new BillDao();
 			int res = bdao.placeOrder(userid);
 			if (res<0) {
-				System.out.println("Error");
+				session.setAttribute("Errorinbillservlet", "Error-in-billservlet");
 				
 			} else {
+				Bill b = (Bill) session.getAttribute("bill");
+				String bill = Double.toString(b.getFinalBill());
+				bdao.sendSms("Stampy - Your order is placed succesfully of amount : Rs " + bill, mobile);
+				
+				session.setAttribute("session", session);
 				response.sendRedirect("PlaceOrder.jsp");
 			}
 		

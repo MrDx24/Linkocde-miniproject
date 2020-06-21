@@ -11,10 +11,18 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	
+<style type="text/css">
+	body {
+		background-image: url("images/login.jpg"); 
+		background-repeat: no-repeat; 
+		background-size: cover;
+	}
+</style>
 </head>
 <body>
 	
-	<div id="loginForm" class="container">
+	<div id="" class="container loginForm">
 		<h2>Login Form</h2>
 		<form action="LoginController" method="post" class="formGroup">
 			<div class="formGroup">

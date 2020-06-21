@@ -1,0 +1,145 @@
+Product.jsp : 
+<%-- <c:out value="${p.getPprice()}"></c:out>
+		<c:out value="${p.getPnames()}"></c:out> --%>
+	
+<%-- <% for(int i=0; i<pd.size() ;i++) { %> --%>
+<%-- <% } %> --%>
+<%-- <%!int size = 0 ; %>
+<%!int data = 0; %>
+<% ArrayList lst = (ArrayList)session.getAttribute("products"); %>
+<% if(lst==null) {size = 0;}else{size = lst.size();} %> --%>
+
+style.css : 
+/* box-shadow: 1px 1px 2px gray, 0 0 25px #e8e8e8, 0 0 5px #e8e8e8; */
+
+DisplayCart.jsp : 
+<%-- <% ArrayList list = (ArrayList)session.getAttribute("products"); %> 
+	<%session.setAttribute("lstpr", list); %> --%>
+<%-- <% if(list == null) { %> --%>
+		<%-- <% else{ %> --%>
+		<%-- <% for (int i = 0; i < list.size() ; i++) { %> --%>
+		<%-- <% Order p = (Order)list.get(i); %> --%>
+<%-- <% } } %> --%>
+
+styles.css : 
+/* .center {
+    margin: 50px 0px 0px 0px;
+} */
+
+Register.jsp : 
+<!-- <a href="Register.html" id="register" style="text-decoration: none;">New User ? <b>Sign up</b></a> -->
+
+ProductServlet.java : 
+//			response.getWriter().append("Served at: ").append(request.getContextPath());
+//			lst.add(product);
+System.out.println("Accepted");
+			for (int i = 0; i < lst.size(); i++) {
+				System.out.println("-----------------------------");
+				System.out.println(lst.get(i).getProductName()+" : "+lst.get(i).getProductPrice()+" : "+lst.get(i).getProductQuantity()+"");
+				System.out.println("-----------------------------");
+			}
+
+CartServlet.java : 
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		String res[] = message.split(" ");
+//		int bid = Integer.parseInt(res[0]);
+//		int rs = Integer.parseInt(res[1]);
+//		session.setAttribute("billid",bid);
+//		
+//		session.setAttribute("bname",name);
+/*//
+		List<Bill> lst=new ArrayList<>();
+		lst.add(b);
+		
+		ProductDao dobj=new ProductDao();
+		int n=dobj.save(lst);
+		
+		//if(n>0){
+			response.sendRedirect("Bill.jsp");
+	//	}		else{
+			//response.sendRedirect("D.jsp");
+		//}
+		//		RequestDispatcher rd = request.getRequestDispatcher("Bill.jsp");
+//		request.setAttribute("bill",b);
+//		rd.forward(request, response);
+*/			
+import java.util.List;
+import com.dao.ProductDao;
+import com.model.Product;
+System.out.println("Error");
+
+LoginServlet.java : 
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+import java.io.PrintWriter;
+System.out.println("Login result : id :  " + result);
+				System.out.println("Error in login");
+				System.out.println("Successful");
+
+BillServlet.java : 
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		int bid = (int) session.getAttribute("billid");
+//		String name = (String) session.getAttribute("bname");
+System.out.println("Userid : " + userid);
+String ans = System.out.println(ans);
+
+RegisterServlet.java : 
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+System.out.println("Error in Register");
+				System.out.println("Successful");
+
+
+Dao.java : 
+if(con!=null) {
+	System.out.println("Connected");
+}
+		
+CartDao.java : 
+//		int orderId = id+1234;
+//		System.out.println("*****in if update*****");
+		/*double oldtotal = rs.getDouble("billtotal");
+		double oldcgst = rs.getDouble("cgst");
+		double oldsgst = rs.getDouble("sgst");
+		double finalbill = rs.getDouble("finalbill");*/
+//		String bid = Integer.toString(billid);
+//		String res = Integer.toString(i);
+//		String message = bid+" "+res;
+//		return message;
+//		System.out.println(i);
+//		String bid = Integer.toString(billid);
+//		String res = Integer.toString(i);
+//		String message = bid+" "+res;
+//		return message;
+//		ArrayList<Order> productsList = new ArrayList();
+import com.model.Product;
+import java.util.ArrayList;
+import com.model.Order;
+ArrayList<Order> productsList = new ArrayList();
+Order order;
+
+System.out.println("*****in else bill*****");
+		System.out.println("*****in bill if*****");
+		System.out.println("----------------------------------------------");
+		System.out.println("Inside CartDao  : id : " + id);
+		System.out.println("Bill name : " + bill.getName());
+		System.out.println("----------------------------------------------");
+
+
+ProductDao.java : 
+import javax.servlet.http.HttpSession;
+System.out.println("----------------------------------------------");
+		System.out.println("Inside ProductDao  : id : " + id);
+		System.out.println("Order name : " + product.getProductName());
+		System.out.println("----------------------------------------------");
+		System.out.println("*****in if update*****");
+		System.out.println("*****in else update*****");
+		System.out.println("Loaded successfully : " + productsList.size());
+
+
+BillDao.java : 
+import java.util.ArrayList;
+
+import com.model.Order;
+
+RegisterDao.java : 
+System.out.println("inside regsiterdao" + register.getFullName());
+System.out.println("Encrypted password : " + psswd);

@@ -2,7 +2,7 @@ package com.controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dao.CartDao;
-import com.dao.ProductDao;
+
 import com.model.Bill;
 import com.model.Order;
-import com.model.Product;
+
 
 /**
  * Servlet implementation class CartServlet
@@ -37,12 +37,12 @@ public class CartServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 		try {
 			HttpSession session = request.getSession(true);
 			int id = (int)session.getAttribute("userid");
 			int orderid = (int)session.getAttribute("orderid");
-			ArrayList<Order> products =  new ArrayList<>();
+			ArrayList<Order> products =  new ArrayList<Order>();
 	
 			products = (ArrayList)session.getAttribute("products");
 			
@@ -59,22 +59,15 @@ public class CartServlet extends HttpServlet {
 	
 			Bill bill=new Bill(name, total, gst, gst, finalTotal);
 			int message = cdao.saveBill(id, orderid, bill);
-//			String res[] = message.split(" ");
-//			int bid = Integer.parseInt(res[0]);
-//			int rs = Integer.parseInt(res[1]);
+
 			if(message<0){
-				System.out.println("Error");
+				
+				session.setAttribute("billerror","Bill Error");	
 			}
 			else {
 			
 				Bill b = cdao.getBill(orderid, name);
-				
-				session.setAttribute("bill",b);
-				
-//				session.setAttribute("billid",bid);
-//				
-//				session.setAttribute("bname",name);
-				
+				session.setAttribute("bill",b);				
 				response.sendRedirect("Bill.jsp");
 			}
 		}
@@ -82,22 +75,8 @@ public class CartServlet extends HttpServlet {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-/*//
-		List<Bill> lst=new ArrayList<>();
-		lst.add(b);
 		
-		ProductDao dobj=new ProductDao();
-		int n=dobj.save(lst);
-		
-		//if(n>0){
-			response.sendRedirect("Bill.jsp");
-	//	}		else{
-			//response.sendRedirect("D.jsp");
-		//}
-		//		RequestDispatcher rd = request.getRequestDispatcher("Bill.jsp");
-//		request.setAttribute("bill",b);
-//		rd.forward(request, response);
-*/			
+
 	}
 
 	/**
